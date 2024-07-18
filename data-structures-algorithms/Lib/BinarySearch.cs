@@ -4,6 +4,11 @@ public class BinarySearch : ISearchStrategy
 {
     public int Search(int[] input, int target)
     {
+        if (input.Length == 0)
+        {
+            return ISearchStrategy.TargetNotFound;
+        }
+
         var low = 0;
         var high = input.Length - 1;
 

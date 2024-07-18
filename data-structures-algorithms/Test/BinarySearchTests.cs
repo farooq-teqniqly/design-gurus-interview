@@ -28,4 +28,10 @@ public class BinarySearchTests
     {
         new BinarySearch().Search(input, target).Should().Be(ISearchStrategy.TargetNotFound);
     }
+
+    [Fact]
+    public void Search_Returns_Not_Found_When_Array_Is_Empty()
+    {
+        new BinarySearch().Search([], 10).Should().Be(ISearchStrategy.TargetNotFound);
+    }
 }

@@ -24,4 +24,10 @@ public class LinearSearchTests
     {
         new LinearSearch().Search(input, target).Should().Be(ISearchStrategy.TargetNotFound);
     }
+
+    [Fact]
+    public void Search_Returns_Not_Found_When_Array_Is_Empty()
+    {
+        new LinearSearch().Search([], 10).Should().Be(ISearchStrategy.TargetNotFound);
+    }
 }
