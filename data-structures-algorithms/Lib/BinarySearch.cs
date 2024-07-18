@@ -1,10 +1,8 @@
 namespace Lib;
 
-public class BinarySearch
+public class BinarySearch : ISearchStrategy
 {
-    public const int TargetNotFound = -1;
-
-    public static int Search(int[] input, int target)
+    public int Search(int[] input, int target)
     {
         var low = 0;
         var high = input.Length - 1;
@@ -27,6 +25,6 @@ public class BinarySearch
             }
         }
 
-        return TargetNotFound;
+        return ISearchStrategy.TargetNotFound;
     }
 }
