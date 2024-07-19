@@ -3,11 +3,11 @@ using Lib;
 
 namespace Test;
 
-public class LinqPanagramStrategyTests
+public class HashSetPanagramStrategyTests
 {
     private static readonly char[] _alphabet = "abcdefghijklmnopqrstuvwxyz".ToArray();
-    private readonly IPanagramStrategy _panagramStrategy = new LinqPanagramStrategy(_alphabet);
-    
+    private readonly IPanagramStrategy _panagramStrategy = new HashSetPanagramStrategy(_alphabet);
+
     [Theory]
     [InlineData("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", true)]
     [InlineData("TheQuickBrownFoxJumpsOverTheLazyDog", true)]

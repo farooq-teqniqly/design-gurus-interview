@@ -1,13 +1,16 @@
-﻿namespace Lib;
+namespace Lib;
 
 public class HashSetPanagramStrategy : IPanagramStrategy
 {
-    private static readonly char[] _alphabet = "abcdefghijklmnopqrstuvwxyz".ToArray();
+    public char[] Alphabet { get; }
+
+    public HashSetPanagramStrategy(char[] alphabet)
+    {
+        Alphabet = alphabet;
+    }
 
     public bool CheckIfPanagram(string sentence)
     {
-        ArgumentNullException.ThrowIfNull(sentence);
-
         var set = new HashSet<char>();
 
         foreach (var letter in sentence.ToLower())
@@ -20,6 +23,6 @@ public class HashSetPanagramStrategy : IPanagramStrategy
             set.Add(letter);
         }
 
-        return set.Count == _alphabet.Length;
+        return set.Count == Alphabet.Length;
     }
 }
