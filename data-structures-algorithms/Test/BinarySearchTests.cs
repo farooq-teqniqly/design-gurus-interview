@@ -34,4 +34,12 @@ public class BinarySearchTests
     {
         new BinarySearch().Search([], 10).Should().Be(ISearchStrategy.TargetNotFound);
     }
+
+    [Fact]
+    public void Search_When_Input_Null_Throws_Exception()
+    {
+        var act = () => new BinarySearch().Search(null!, 10);
+
+        act.Should().Throw<ArgumentNullException>();
+    }
 }

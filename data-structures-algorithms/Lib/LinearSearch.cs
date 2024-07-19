@@ -1,9 +1,13 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace Lib;
 
 public class LinearSearch : ISearchStrategy
 {
     public int Search(int[] input, int target)
     {
+        ArgumentNullException.ThrowIfNull(input);
+
         if (input.Length == 0)
         {
             return ISearchStrategy.TargetNotFound;
