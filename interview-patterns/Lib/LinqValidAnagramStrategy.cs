@@ -1,7 +1,8 @@
 namespace Lib;
-public class ValidAnagram
+
+public class LinqValidAnagramStrategy : IValidAnagramStrategy
 {
-    public static bool IsAnagram(string s, string t)
+    public bool IsAnagram(string s, string t)
     {
         ArgumentException.ThrowIfNullOrEmpty(s);
         ArgumentException.ThrowIfNullOrEmpty(t);
