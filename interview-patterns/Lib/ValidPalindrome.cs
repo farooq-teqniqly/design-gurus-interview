@@ -3,6 +3,8 @@ public class ValidPalindrome
 {
     public static bool IsPalindrome(string s)
     {
+        ArgumentException.ThrowIfNullOrEmpty(s);
+
         if (s.Trim().Length == 0)
         {
             return true;
