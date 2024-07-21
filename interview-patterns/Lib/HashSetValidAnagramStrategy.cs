@@ -1,18 +1,11 @@
 namespace Lib;
 
-public class HashSetValidAnagramStrategy : IValidAnagramStrategy
+public class HashSetValidAnagramStrategy : ValidAnagramStrategy
 {
     private readonly Dictionary<char, int> _counts = new();
 
-    public bool IsAnagram(string s, string t)
+    protected override bool ValidateAnagram(string s, string t)
     {
-        ArgumentException.ThrowIfNullOrEmpty(t);
-
-        if (s.Length != t.Length)
-        {
-            return false;
-        }
-
         foreach (var ch in s)
         {
             var lower = char.ToLower(ch);

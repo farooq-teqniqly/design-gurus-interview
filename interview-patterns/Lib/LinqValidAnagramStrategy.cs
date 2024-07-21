@@ -1,17 +1,9 @@
 namespace Lib;
 
-public class LinqValidAnagramStrategy : IValidAnagramStrategy
+public class LinqValidAnagramStrategy : ValidAnagramStrategy
 {
-    public bool IsAnagram(string s, string t)
+    protected override bool ValidateAnagram(string s, string t)
     {
-        ArgumentException.ThrowIfNullOrEmpty(s);
-        ArgumentException.ThrowIfNullOrEmpty(t);
-
-        if (s.Length != t.Length)
-        {
-            return false;
-        }
-
         return s.ToLower()
             .OrderBy(ch => ch)
             .SequenceEqual(t.ToLower().OrderBy(ch => ch));
