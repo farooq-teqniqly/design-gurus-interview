@@ -1,7 +1,7 @@
 namespace Lib;
 public class ReverseVowels
 {
-    static readonly string vowels = "aeiouAEIOU";
+    static readonly string _vowels = "aeiouAEIOU";
 
     public static string Reverse(string s)
     {
@@ -44,6 +44,6 @@ public class ReverseVowels
 
     private static bool IsVowel(char[] arr, int leftPointerIndex)
     {
-        return vowels.Contains(arr[leftPointerIndex]);
+        return _vowels.Contains(arr[leftPointerIndex]);
     }
 }
