@@ -3,29 +3,27 @@ public class ShortestWordDistance
 {
     public static int ShortestDistance(string[] words, string word1, string word2)
     {
-        var positions = new Dictionary<string, List<int>>();
+        var minDistance = words.Length;
+        var word1Position = -1;
+        var word2Position = -1;
 
-        for(var i = 0; i < words.Length; i++)
+        for (var i = 0; i < words.Length; i++)
         {
-            var key = words[i];
+            var currentWord = words[i];
 
-            if (!positions.ContainsKey(key))
+            if (WordsMatch(word1, currentWord))
             {
-                positions.Add(key, [i]);
+                word1Position = i;
             }
-            else
+
+            if (WordsMatch(word2, currentWord))
             {
-                positions[key].Add(i);
+                word2Position = i;
             }
-        }
 
-        var minDistance = int.MaxValue;
-
-        foreach (var word1Position in positions[word1])
-        {
-            foreach (var word2Position in positions[word2])
+            if (CalculateNewMinDistance(word1Position, word2Position))
             {
-                var distance = Math.Abs(word1Position - word2Position);
+                var distance = CalculateDistance(word1Position, word2Position);
 
                 if (distance < minDistance)
                 {
@@ -35,5 +33,21 @@ public class ShortestWordDistance
         }
 
         return minDistance;
+    }
+
+    private static int CalculateDistance(int word1Position, int word2Position)
+        => Math.Abs(word1Position - word2Position);
+
+    private static bool CalculateNewMinDistance(int word1Position, int word2Position)
+    {
+        return word1Position != -1 && word2Position != -1;
+    }
+
+    private static bool WordsMatch(string word1, string currentWord)
+    {
+        return string.Equals(
+            word1,
+            currentWord,
+            StringComparison.CurrentCultureIgnoreCase);
     }
 }

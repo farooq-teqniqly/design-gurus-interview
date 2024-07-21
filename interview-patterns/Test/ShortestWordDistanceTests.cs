@@ -12,6 +12,7 @@ public class ShortestWordDistanceTests
         5)]
     [InlineData(new[] { "a", "c", "d", "b", "a" }, "a", "b", 1)]
     [InlineData(new[] { "a", "b", "c", "d", "e" }, "a", "e", 4)]
+    [InlineData(new[] { "A", "b", "c", "d", "e" }, "a", "e", 4)]
     public void Returns_Expected_Result(
         string[] words,
         string firstWord,
