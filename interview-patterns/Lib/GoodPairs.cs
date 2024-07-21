@@ -5,19 +5,19 @@ public class GoodPairs
     {
         ArgumentNullException.ThrowIfNull(nums);
 
+        var counts = new Dictionary<int, int>();
+
         var goodPairCount = 0;
 
-        for (var first = 0; first < nums.Length - 1; first++)
+        foreach (var currentNum in nums)
         {
-            for (var second = first + 1; second < nums.Length; second++)
+            if (counts.TryAdd(currentNum, 1))
             {
-                if (nums[first] != nums[second])
-                {
-                    continue;
-                }
-
-                goodPairCount++;
+                continue;
             }
+
+            counts[currentNum]++;
+            goodPairCount = goodPairCount + counts[currentNum] - 1;
         }
 
         return goodPairCount;
