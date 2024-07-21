@@ -21,26 +21,31 @@ public class ShortestWordDistance
                 word2Position = i;
             }
 
-            if (CalculateNewMinDistance(word1Position, word2Position))
-            {
-                var distance = CalculateDistance(word1Position, word2Position);
-
-                if (distance < minDistance)
-                {
-                    minDistance = distance;
-                }
-            }
+            CalculateNewMinDistance(
+                word1Position,
+                word2Position,
+                ref minDistance);
         }
 
         return minDistance;
     }
 
-    private static int CalculateDistance(int word1Position, int word2Position)
-        => Math.Abs(word1Position - word2Position);
-
-    private static bool CalculateNewMinDistance(int word1Position, int word2Position)
+    private static void CalculateNewMinDistance(
+        int word1Position,
+        int word2Position,
+        ref int minDistance)
     {
-        return word1Position != -1 && word2Position != -1;
+        if (word1Position == -1 || word2Position == -1)
+        {
+            return;
+        }
+
+        var distance = Math.Abs(word1Position - word2Position);
+
+        if (distance < minDistance)
+        {
+            minDistance = distance;
+        }
     }
 
     private static bool WordsMatch(string word1, string currentWord)
