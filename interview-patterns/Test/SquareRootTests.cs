@@ -10,6 +10,7 @@ public class SquareRootTests
     [InlineData(4, 2)]
     [InlineData(8, 2)]
     [InlineData(2, 1)]
+    [InlineData(2147395600, 46340)]
     public void Returns_Expected_Result(int num, int expectedSquareRoot)
     {
         SquareRoot.Calculate(num).Should().Be(expectedSquareRoot);

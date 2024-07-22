@@ -1,3 +1,5 @@
+using System.Numerics;
+
 namespace Lib;
 public class SquareRoot
 {
@@ -16,7 +18,7 @@ public class SquareRoot
         while (left <= right)
         {
             var pivot = left + ((right - left) / 2);
-            long guess = pivot * pivot;
+            long guess = (long)pivot * pivot;
 
             if (guess < x)
             {
