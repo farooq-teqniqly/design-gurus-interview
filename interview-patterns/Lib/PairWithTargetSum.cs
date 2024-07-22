@@ -12,14 +12,24 @@ public class PairWithTargetSum
             return notFound;
         }
 
-        for (var i = 0; i < arr.Length - 1; i++)
+        var left = 0;
+        var right = arr.Length - 1;
+
+        while(left < right)
         {
-            for (var j = i + 1; j < arr.Length; j++)
+            var sum = arr[left] + arr[right];
+
+            if (sum > targetSum)
             {
-                if (arr[i] + arr[j] == targetSum)
-                {
-                    return [i, j];
-                }
+                right--;
+            }
+            else if (sum < targetSum)
+            {
+                left++;
+            }
+            else
+            {
+                return [left, right];
             }
         }
 
