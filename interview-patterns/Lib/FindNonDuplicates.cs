@@ -17,13 +17,40 @@ public class FindNonDuplicates
 
         for (var i = 1; i < arr.Length; i++)
         {
-            if (arr[nextNonDuplicate - 1] != arr[i])
+            if (arr[nextNonDuplicate - 1] == arr[i])
             {
-                arr[nextNonDuplicate] = arr[i];
-                nextNonDuplicate++;
+                continue;
             }
+
+            arr[nextNonDuplicate] = arr[i];
+            nextNonDuplicate++;
         }
 
         return nextNonDuplicate;
+    }
+
+    public static int Remove(int[] arr, int key)
+    {
+        ArgumentNullException.ThrowIfNull(arr);
+
+        if (arr.Length == 0)
+        {
+            return 0;
+        }
+
+        var nextNonKeyIndex = 0;
+
+        for (var i = 0; i < arr.Length; i++)
+        {
+            if (arr[i] == key)
+            {
+                continue;
+            }
+
+            arr[nextNonKeyIndex] = arr[i];
+            nextNonKeyIndex++;
+        }
+
+        return nextNonKeyIndex;
     }
 }
