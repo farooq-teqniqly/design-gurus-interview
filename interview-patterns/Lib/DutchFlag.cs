@@ -8,20 +8,20 @@ public class DutchFlag
 
         for (var i = 0; i <= high;)
         {
-            switch (arr[i])
+            if (arr[i] == 0)
             {
-                case 0:
-                    Swap(arr, i, low);
-                    i++;
-                    low++;
-                    break;
-                case 1:
-                    i++;
-                    break;
-                default:
-                    Swap(arr, i, high);
-                    high--;
-                    break;
+                Swap(arr, i, low);
+                i++;
+                low++;
+            }
+            else if (arr[i] == 1)
+            {
+                i++;
+            }
+            else
+            {
+                Swap(arr, i, high);
+                high--;
             }
         }
         return arr;
