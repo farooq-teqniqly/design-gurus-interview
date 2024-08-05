@@ -1,5 +1,5 @@
 namespace Lib;
-public class SquareSortedArray
+public static class SquareSortedArray
 {
     public static int[] MakeSquares(int[] arr)
     {

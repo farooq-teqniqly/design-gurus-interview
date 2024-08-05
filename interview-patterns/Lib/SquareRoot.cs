@@ -1,7 +1,5 @@
-using System.Numerics;
-
 namespace Lib;
-public class SquareRoot
+public static class SquareRoot
 {
     public static int Calculate(int x)
     {

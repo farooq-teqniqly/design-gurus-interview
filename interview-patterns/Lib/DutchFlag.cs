@@ -1,5 +1,5 @@
 namespace Lib;
-public class DutchFlag
+public static class DutchFlag
 {
     public static int[] Sort(int[] arr)
     {

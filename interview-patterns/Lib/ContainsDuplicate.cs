@@ -1,6 +1,6 @@
 namespace Lib;
 
-public class ContainsDuplicate
+public static class ContainsDuplicate
 {
     public static bool Execute(int[] nums)
     {

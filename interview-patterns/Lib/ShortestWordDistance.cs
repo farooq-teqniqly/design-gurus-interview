@@ -1,5 +1,5 @@
 namespace Lib;
-public class ShortestWordDistance
+public static class ShortestWordDistance
 {
     public static int ShortestDistance(string[] words, string word1, string word2)
     {

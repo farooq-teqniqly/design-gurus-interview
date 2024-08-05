@@ -1,5 +1,5 @@
 namespace Lib;
-public class ReverseVowels
+public static class ReverseVowels
 {
     static readonly string _vowels = "aeiouAEIOU";
 
