@@ -5,8 +5,9 @@ public static class DutchFlag
     {
         var low = 0;
         var high = arr.Length - 1;
+        var i = 0;
 
-        for (var i = 0; i <= high;)
+        while (i <= high)
         {
             if (arr[i] == 0)
             {
