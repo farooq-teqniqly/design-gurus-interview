@@ -5,7 +5,7 @@ namespace Test;
 public class LinkedListCycleTests
 {
     [Fact]
-    public void Returns_True_When_Cycle_1()
+    public void Returns_True_When_Cycle()
     {
         var head = new ListNode(1);
         var tail = head;
@@ -60,7 +60,7 @@ public class LinkedListCycleTests
     }
 
     [Fact]
-    public void Can_Get_Cycle_Length()
+    public void Can_Get_Cycle_Length_1()
     {
         var head = new ListNode(1);
         var tail = head;
@@ -73,7 +73,27 @@ public class LinkedListCycleTests
 
         tail.Next = head;
 
-        LinkedListCycle.GetCycleLength(head).Should().Be(5);
+        LinkedListCycle.GetCycleLength(head).Should().Be(6);
+    }
+
+    [Fact]
+    public void Can_Get_Cycle_Length_2()
+    {
+        var head = new ListNode(1);
+        var node2 = new ListNode(2);
+        var node3 = new ListNode(3);
+        var node4 = new ListNode(4);
+        var node5 = new ListNode(5);
+        var node6 = new ListNode(6);
+
+        head.Next = node2;
+        node2.Next = node3;
+        node3.Next = node4;
+        node4.Next = node5;
+        node5.Next = node6;
+        node6.Next = node3;
+
+        LinkedListCycle.GetCycleLength(head).Should().Be(4);
     }
 
     [Fact]
@@ -90,5 +110,35 @@ public class LinkedListCycleTests
     {
         var act = () => LinkedListCycle.GetCycleLength(null!);
         act.Should().Throw<ArgumentNullException>();
+    }
+
+    [Fact]
+    public void GetStartCycleNode_Returns_Expected_Result_1()
+    {
+        var head = new ListNode(1);
+        var node2 = new ListNode(2);
+        var node3 = new ListNode(3);
+        var node4 = new ListNode(4);
+        var node5 = new ListNode(5);
+        var node6 = new ListNode(6);
+
+        head.Next = node2;
+        node2.Next = node3;
+        node3.Next = node4;
+        node4.Next = node5;
+        node5.Next = node6;
+        node6.Next = node3;
+
+        LinkedListCycle.GetStartCycleNode(head).Should().Be(node3);
+    }
+
+    [Fact]
+    public void GetStartCycleNode_Returns_Expected_Resul2()
+    {
+        var head = new ListNode(1);
+
+        head.Next = head;
+
+        LinkedListCycle.GetStartCycleNode(head).Should().Be(head);
     }
 }
