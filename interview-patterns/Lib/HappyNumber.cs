@@ -3,15 +3,19 @@ public static class HappyNumber
 {
     public static bool Find(int num)
     {
-        var set = new HashSet<int>();
+        var slow = num;
+        var fast = num;
 
-        while (num != 1 && !set.Contains(num))
+        do
         {
-            set.Add(num);
-            num = SumOfSquares(num);
-        }
+            slow = SumOfSquares(slow);
 
-        return num == 1;
+            fast = SumOfSquares(fast);
+            fast = SumOfSquares(fast);
+
+        } while (slow != fast);
+
+        return slow == 1;
     }
     private static int SumOfSquares(int n)
     {
