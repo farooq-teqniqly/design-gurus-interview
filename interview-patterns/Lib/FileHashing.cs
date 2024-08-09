@@ -5,7 +5,7 @@ using System.Text.Json;
 namespace Lib;
 public static class FileHashing
 {
-    private static readonly JsonSerializerOptions jsonSerializerOptions = JsonSerializerOptions.Default;
+    private static readonly JsonSerializerOptions _jsonSerializerOptions = JsonSerializerOptions.Default;
 
     public static string Hash(string content)
     {
@@ -15,18 +15,15 @@ public static class FileHashing
 
     private static string HashJson(string json)
     {
-        using (var sha256 = SHA256.Create())
-        {
-            var hashBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(json));
-            return BitConverter.ToString(hashBytes).Replace("-", "").ToLowerInvariant();
-        }
+        var hashBytes = SHA256.HashData(Encoding.UTF8.GetBytes(json));
+        return BitConverter.ToString(hashBytes).Replace("-", "").ToLowerInvariant();
     }
 
     private static string NormalizeJson(string content)
     {
         using (var document = JsonDocument.Parse(content))
         {
-            return JsonSerializer.Serialize(document.RootElement, jsonSerializerOptions);
+            return JsonSerializer.Serialize(document.RootElement, _jsonSerializerOptions);
         }
     }
 }
