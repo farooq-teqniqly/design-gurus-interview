@@ -1,4 +1,5 @@
 namespace Lib;
+
 public static class HappyNumber
 {
     public static bool Find(int num)
@@ -31,4 +32,3 @@ public static class HappyNumber
         return sum;
     }
 }
-

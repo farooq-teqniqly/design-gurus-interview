@@ -1,4 +1,5 @@
 namespace Lib;
+
 public static class LinkedListCycle
 {
     public static bool HasCycle(ListNode head)

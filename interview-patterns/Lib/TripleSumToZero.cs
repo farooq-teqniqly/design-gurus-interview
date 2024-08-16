@@ -1,4 +1,5 @@
 namespace Lib;
+
 public static class TripleSumToZero
 {
     public static List<List<int>> SearchTriplets(int[] arr)

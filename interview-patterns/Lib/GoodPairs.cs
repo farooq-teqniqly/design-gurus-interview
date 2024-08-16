@@ -1,4 +1,5 @@
 namespace Lib;
+
 public static class GoodPairs
 {
     public static int NumGoodPairs(int[] nums)

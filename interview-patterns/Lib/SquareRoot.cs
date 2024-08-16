@@ -1,4 +1,5 @@
 namespace Lib;
+
 public static class SquareRoot
 {
     public static int Calculate(int x)

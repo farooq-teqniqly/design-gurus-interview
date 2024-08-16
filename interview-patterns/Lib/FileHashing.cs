@@ -3,6 +3,7 @@ using System.Text;
 using System.Text.Json;
 
 namespace Lib;
+
 public static class FileHashing
 {
     private static readonly JsonSerializerOptions _jsonSerializerOptions = JsonSerializerOptions.Default;

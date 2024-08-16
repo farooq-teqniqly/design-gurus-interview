@@ -1,4 +1,4 @@
-﻿namespace Lib;
+namespace Lib;
 
 public abstract class ValidAnagramStrategy : IValidAnagramStrategy
 {

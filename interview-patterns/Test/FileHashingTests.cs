@@ -3,6 +3,7 @@ using FluentAssertions;
 using Lib;
 
 namespace Test;
+
 public class FileHashingTests
 {
     [Fact]
@@ -34,4 +35,3 @@ public class FileHashingTests
         return Path.Combine(testDataFolder, fileName);
     }
 }
-

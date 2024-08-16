@@ -1,4 +1,5 @@
 namespace Lib;
+
 public static class ValidPalindrome
 {
     public static bool IsPalindrome(string s)

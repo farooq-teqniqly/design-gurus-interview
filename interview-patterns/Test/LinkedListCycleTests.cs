@@ -2,6 +2,7 @@ using FluentAssertions;
 using Lib;
 
 namespace Test;
+
 public class LinkedListCycleTests
 {
     [Fact]

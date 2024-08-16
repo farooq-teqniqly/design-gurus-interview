@@ -1,4 +1,5 @@
 namespace Lib;
+
 public static class LinkedListMiddle
 {
     public static ListNode FindMiddle(ListNode head)
